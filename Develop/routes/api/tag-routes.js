@@ -20,18 +20,31 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  //!! Tag.findone()
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
+  //?? worked with JT after class on get below refence for the destroy
+  Tag.findOne(
+    {
+      include: [
+        {
+          model: Product,
+          through: ProductTag,
+        },]
+    },
+    { where: { id: req.params.id } },
+  ).then(dbTagData => {
+    if (!dbTagData) {
+      return res.status(404).json({ errorMessage: "id not found" })
+    }
+    res.json(dbTagData)
+  }
+  )
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post('/', (req, res) => {
-  Tag.create(req.body).then((dbTagData) => {
-    res.json(dbTagData)
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  })
+  Tag.create(req.body)
 });
 
 router.put('/:id', (req, res) => {
@@ -46,6 +59,9 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   //!! Tag.destroy()
+  /* follow the get statment above but instead of returning data we want to
+   * destroy the data 
+   */
   // delete on tag by its `id` value
 });
 
