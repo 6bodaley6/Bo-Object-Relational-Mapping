@@ -1,20 +1,48 @@
-AS A manager at an internet retail company
-I WANT a back end for my e-commerce website that uses the latest technologies
-SO THAT my company can compete with other e-commerce companies
+# Bo Object Relational Mapping
 
-GIVEN a functional Express.js API
+![GitHub license](https://img.shields.io/badge/license--blue.svg)
 
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
-THEN I am able to connect to a database using Sequelize
+## Description
 
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
+This is a backend for a E-Commerce website using express for the server and MySQL for the database with Sequalize as the ORM to run SQL models and queries. The SQL database includes tables for products, categories, tags, and product tags. RESTful API routes are used to make request and update from the database which are joined through Sequalize queries.
 
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
+## Table Of Contents
 
-WHEN I open API GET routes in Insomnia Core for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
+- [Installation](#installation)
+- [Usage](#Usage)
+- [Contributing](#Contributing)
+- [Questions](#Questions)
+- [License](#license)
 
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
-THEN I am able to successfully create, update, and delete data in my database
+## Installation
+
+Node.js and MySQL must be installed on your computer
+
+## License
+
+This is Licensed under the license
+
+## Usage
+
+git clone repository to your machine
+open in your choice of text editor
+open command line interface and run the following command
+mysql -u root -p
+enter your mySQL password
+create schema by running the following command
+source db/schema.sql
+run the following command
+quit
+run the following command
+npm run seed
+run the following command
+npm start
+open in insomnia core
+
+## Contributing
+
+Any feedback would be appreciated
+
+## Questions
+
+https://github.com/6bodaley6
